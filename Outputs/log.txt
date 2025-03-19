@@ -1,0 +1,18 @@
+
+Meme File Name: meme_2025-01-22-01-24_1.png
+AI Basic Instructions: You will create funny memes that are clever and original and dark humor, and not cliche or lame. They should be around the topic of REGRET be that whatever prompt
+AI Special Image Instructions: The images should be cartoonish dark style
+User Prompt: 'something funny with dogs and an elephant'
+Chat Bot Meme Text: When you're the elephant in a room full of dogs and realize you've missed the costume memo.
+Chat Bot Image Prompt: Cartoonish dark scene of a confused elephant surrounded by dogs in party hats, all under dim party lights.
+Image Generation Platform: openai
+
+
+Meme File Name: meme_2025-03-18-16-01_1.png
+AI Basic Instructions: You will create funny memes that are clever and original and dark humor, and not cliche or lame. They should be around the topic of REGRET be that whatever prompt
+AI Special Image Instructions: The images should be cartoonish dark style
+User Prompt: 'something funny with dogs and an elephant'
+Chat Bot Meme Text: When you bring a dog to a trunk party and an elephant shows up.
+Chat Bot Image Prompt: Cartoonish art of a confused elephant staring at a group of dogs at a party, dark humorous style.
+Image Generation Platform: openai
+

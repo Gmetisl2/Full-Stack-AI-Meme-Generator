@@ -52,6 +52,46 @@ args = parser.parse_args()
 # Create a namedtuple classes
 ApiKeysTupleClass = namedtuple('ApiKeysTupleClass', ['openai_key', 'clipdrop_key', 'stability_key'])
 
+
+# Add this at the top of generator.py, after the imports
+def get_package_root():
+    """Get the absolute path to the package directory"""
+    return os.path.dirname(os.path.abspath(__file__))
+
+def get_assets_file(fileName):
+    """Get the path to a file in the assets directory"""
+    package_root = get_package_root()
+    return os.path.join(package_root, "assets", fileName)
+
+def get_settings(settings_filename="settings.ini"):
+    default_settings_filename = "settings_default.ini"
+    
+    def check_settings_file():
+        if not os.path.isfile(settings_filename):
+            file_to_copy_path = get_assets_file(default_settings_filename)
+            if not os.path.isfile(file_to_copy_path):
+                raise FileNotFoundError(f"Could not find default settings file at {file_to_copy_path}")
+            shutil.copyfile(file_to_copy_path, settings_filename)
+            print("\nINFO: Settings file not found, so default 'settings.ini' file created. You can use it going forward to change more advanced settings if you want.")
+            input("\nPress Enter to continue...")
+    
+    check_settings_file()
+    # Try to get settings file, if fails, use default settings
+    try:
+        settings = get_config(settings_filename)
+        pass
+    except:
+        settings = get_config(get_assets_file(default_settings_filename))
+        print("\nERROR: Could not read settings file. Using default settings instead.")
+        
+    # If something went wrong and empty settings, will use default settings
+    if settings == {}:
+        settings = get_config(get_assets_file(default_settings_filename))
+        print("\nERROR: Something went wrong reading the settings file. Using default settings instead.")
+        
+    return settings
+
+    
 # Create custom exceptions
 class NoFontFileError(Exception):
     def __init__(self, message, font_file):
